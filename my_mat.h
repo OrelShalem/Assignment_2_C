@@ -6,9 +6,9 @@
 // a constant definition exported by library:
     #define FALSE  0
 // a constant definition exported by library:
-    #define SIZE  3
+    #define SIZE  10
 // a constant definition exported by library:
-    #define SIZE_VAL  9
+    #define SIZE_VAL  100
 
 void enterVal(int matrix[SIZE][SIZE], int values[]);
 int isPathExists(int i, int j, int matrix[SIZE][SIZE]);

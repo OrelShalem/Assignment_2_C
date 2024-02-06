@@ -4,10 +4,10 @@ FLAGS = -Wall -g
 OBJECTS_MAIN = my_graph.o
 OBJECTS_LIB = my_mat.o
 
-all: my_matlibs my_matlibd my_graph maind
+all: my_matlibs my_matlibd connections maind
 
-my_graph: $(OBJECTS_MAIN) my_matlib.a
-	$(CC) $(FLAGS) -o my_graph $(OBJECTS_MAIN) my_matlib.a
+connections: $(OBJECTS_MAIN) my_matlib.a
+	$(CC) $(FLAGS) -o connections $(OBJECTS_MAIN) my_matlib.a
 
 maind: $(OBJECTS_MAIN)
 	$(CC) $(FLAGS) -o maind $(OBJECTS_MAIN) ./my_matlib.so
@@ -29,4 +29,4 @@ my_matlibs: my_matlib.a
 my_matlibd: my_matlib.so
 
 clean:
-	rm -f *.o *.a *.so my_graph maind
+	rm -f *.o *.a *.so connections maind

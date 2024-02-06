@@ -1,0 +1,98 @@
+#include "my_mat.h"
+#include <stdbool.h>
+#include <limits.h>
+
+void enterVal(int matrix[SIZE][SIZE], int values[]){
+    int index = 0;
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+           matrix[i][j] = values[index++];
+        }
+    }
+}
+
+int isPathExists(int i, int j, int matrix[SIZE][SIZE]){
+   int path = bfs(i,j,SIZE,matrix);
+   if(path == 1){
+    return TRUE;
+   }
+    return FALSE;
+}
+int bfs(int v, int dest, int n, int matrix[SIZE][SIZE]) {
+    bool visited[SIZE];
+    // Create a queue and enqueue the source vertex
+    int queue[SIZE], front = 0, rear = 0;
+    queue[rear++] = v;
+    // Mark the vertex as visited
+        visited[v] = true;
+
+
+    while (front != rear) {
+        v = queue[front++];
+
+        // If this vertex is the destination, we found a path
+        if (v != dest) {
+            return 1;
+        }
+        if (v == dest) {
+            return 0;
+        }
+
+
+        
+        // Enqueue all adjacent vertices that have not been visited yet
+        for (int i = 0; i < n; i++) {
+            if (matrix[v][i] != 0 && !visited[i]) {
+                //  if (rear >= SIZE) {
+                //     return 0;
+                // }
+                queue[rear++] = i;
+                visited[i] = true;
+            }
+        }
+    }
+
+    // If we reach here, there is no path from v to dest
+    return 0;
+}
+
+int shortPath(int src, int dest, int matrix[SIZE][SIZE]){
+   int dist[SIZE][SIZE], i, j, k; 
+  
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++){ 
+            dist[i][j] = matrix[i][j];
+        }
+    } 
+  
+    for (k = 0; k < SIZE; k++) 
+    { 
+        for (i = 0; i < SIZE; i++) 
+        { 
+            for (j = 0; j < SIZE; j++) 
+            { 
+                if (i!=j && dist[i][j] == 0 && dist[i][k] != 0 && dist[k][j] != 0)
+                {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+                if (dist[i][j] != 0 && dist[i][k] != 0 && dist[k][j] != 0)
+                {
+                    if (dist[i][k] + dist[k][j] < dist[i][j]){ 
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                    } 
+                }
+                
+                
+            } 
+        } 
+    } 
+     if (dist[src][dest] == 0){
+        return -1;
+     }
+    else{
+        return dist[src][dest];
+    }
+}
+

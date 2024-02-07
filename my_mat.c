@@ -96,3 +96,48 @@ int shortPath(int src, int dest, int matrix[SIZE][SIZE]){
     }
 }
 
+int knapSack(int weights[], int values[] , int selected_bool[]){
+
+    int K[ITEMS + 1][WEIGHT_BAG + 1]; 
+   
+    for (int i = 0; i <= ITEMS; i++) { 
+        for (int w = 0; w <= WEIGHT_BAG; w++) { 
+            if (i == 0 || w == 0){ 
+                K[i][w] = 0;
+            } 
+            else if (weights[i - 1] <= w) {
+                K[i][w] = max(values[i - 1] + K[i - 1][w - weights[i - 1]], K[i - 1][w]);
+            }
+            else{
+                K[i][w] = K[i - 1][w]; 
+            }
+        } 
+    }
+    int result = K[ITEMS][WEIGHT_BAG];
+    int res = K[ITEMS][WEIGHT_BAG];
+
+    int w = WEIGHT_BAG;
+    for (int i = ITEMS; i > 0 && res > 0; i--) {
+         
+        // either the result comes from the top
+        // (K[i-1][w]) or from (val[i-1] + K[i-1]
+        // [w-wt[i-1]]) as in Knapsack table. If
+        // it comes from the latter one/ it means 
+        // the item is included.
+        if (res == K[i - 1][w]) 
+            continue;        
+        else {
+ 
+            // This item is included.
+            selected_bool[i-1] = 1;
+             
+            // Since this weight is included its 
+            // value is deducted
+            res = res - values[i - 1];
+            w = w - weights[i - 1];
+        }
+    }
+      
+    return result; 
+}
+int max(int a, int b) { return (a > b) ? a : b; }

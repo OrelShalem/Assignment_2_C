@@ -7,8 +7,6 @@ int main() {
     char letter;
     int flag = TRUE;
 
-    
-
     while (flag)
     {
         //scanf("Enter a letter A, B, C, D: %c", &letter);

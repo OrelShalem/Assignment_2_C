@@ -34,9 +34,9 @@ int main() {
         }
     }
 
-    if (last_selected_index != -1) {
-    printf("\n"); // ירד לשורה הבאה אם יש תווים שנבחרו
-    }
+    // if (last_selected_index != -1) {
+    // printf("\n");
+    // }
 
 
     return 0;

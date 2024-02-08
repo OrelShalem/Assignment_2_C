@@ -22,22 +22,17 @@ int main() {
     printf("Maximum profit: %d\n", result);
 
     printf("Selected items: ");
-    int last_selected_index = -1; // מסמן את האינדקס האחרון שבו התו נבחר
 
     for (int i = 0; i < ITEMS; i++) {
       if (selected_bool[i] == 1) {
            printf("%c", items[i]);
-           last_selected_index = i;
-           if (i < ITEMS - 1) {
+           if (i < ITEMS - 2) {
             printf(" ");
           }
         }
     }
 
-    // if (last_selected_index != -1) {
-    // printf("\n");
-    // }
-
+  
 
     return 0;
 }

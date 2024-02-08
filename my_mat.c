@@ -21,43 +21,7 @@ int isPathExists(int i, int j, int matrix[SIZE][SIZE]){
    }
     return True;
 }
-int bfs(int v, int dest, int n, int matrix[SIZE][SIZE]) {
-    bool visited[SIZE];
-    // Create a queue and enqueue the source vertex
-    int queue[SIZE], front = 0, rear = 0;
-    queue[rear++] = v;
-    // Mark the vertex as visited
-        visited[v] = true;
 
-
-    while (front != rear) {
-        v = queue[front++];
-
-        // If this vertex is the destination, we found a path
-        if (v != dest) {
-            return 1;
-        }
-        if (v == dest) {
-            return 0;
-        }
-
-
-        
-        // Enqueue all adjacent vertices that have not been visited yet
-        for (int i = 0; i < n; i++) {
-            if (matrix[v][i] != 0 && !visited[i]) {
-                //  if (rear >= SIZE) {
-                //     return 0;
-                // }
-                queue[rear++] = i;
-                visited[i] = true;
-            }
-        }
-    }
-
-    // If we reach here, there is no path from v to dest
-    return 0;
-}
 
 int shortPath(int src, int dest, int matrix[SIZE][SIZE]){
    int dist[SIZE][SIZE], i, j, k; 

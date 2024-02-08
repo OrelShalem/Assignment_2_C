@@ -9,13 +9,13 @@ int main() {
     int selected_bool[ITEMS];
   
     for(int i = 0; i < ITEMS; i++) {
-        printf("item %d: ", i+1);
-        scanf(" %c", &items[i]);  // שימוש ברווח לפני %c
-        printf("value %d: ", i+1);
+        // printf("item %d: ", i+1);
+        scanf(" %c", &items[i]);  
+        // printf("value %d: ", i+1);
         scanf("%d", &values[i]);
-        printf("weight %d: ", i+1);
+        // printf("weight %d: ", i+1);
         scanf("%d", &weights[i]);
-        getchar();  // קריאה נוספת לסיום השורה
+        getchar();
     }
 
     int result = knapSack(weights,values,selected_bool);

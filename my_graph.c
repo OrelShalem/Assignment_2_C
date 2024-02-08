@@ -10,13 +10,11 @@ int main() {
     while (flag)
     {
         //scanf("Enter a letter A, B, C, D: %c", &letter);
-        printf("Enter a letter A, B, C, D: ");
         scanf(" %c", &letter);
     switch (letter) {
         case 'A':
     // Get the values from the user
         for (int i = 0; i < SIZE_VAL; i++) {
-        printf("Enter value %d: ", i + 1);
         scanf("%d", &values[i]);
         }
         enterVal(matrix, values);

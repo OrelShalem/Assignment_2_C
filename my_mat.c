@@ -17,9 +17,9 @@ int isPathExists(int i, int j, int matrix[SIZE][SIZE]){
 //    int path = bfs(i,j,SIZE,matrix);
     int path = shortPath(i,j,matrix);
    if(path == -1){
-    return FALSE;
+    return False;
    }
-    return TRUE;
+    return True;
 }
 int bfs(int v, int dest, int n, int matrix[SIZE][SIZE]) {
     bool visited[SIZE];

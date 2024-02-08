@@ -5,7 +5,7 @@ int main() {
     int matrix[SIZE][SIZE];
     int values[SIZE_VAL];
     char letter;
-    int flag = TRUE;
+    int flag = True;
 
     while (flag)
     {
@@ -23,10 +23,10 @@ int main() {
             int i, j;
             scanf("%d %d", &i,&j);
             int result = isPathExists(i, j, matrix);
-            if(result == TRUE){
-                printf("TRUE\n");
+            if(result == True){
+                printf("True\n");
              } else {
-                 printf("FALSE\n");
+                 printf("False\n");
             }
             break;
         case 'C':
@@ -36,7 +36,7 @@ int main() {
             printf("%d\n", shortest);
             break;
         case 'D':
-            flag = FALSE;
+            flag = False;
             break;
         }
         if(letter == EOF){

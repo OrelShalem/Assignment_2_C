@@ -14,11 +14,12 @@ void enterVal(int matrix[SIZE][SIZE], int values[]){
 }
 
 int isPathExists(int i, int j, int matrix[SIZE][SIZE]){
-   int path = bfs(i,j,SIZE,matrix);
-   if(path == 1){
-    return TRUE;
-   }
+//    int path = bfs(i,j,SIZE,matrix);
+    int path = shortPath(i,j,matrix);
+   if(path == -1){
     return FALSE;
+   }
+    return TRUE;
 }
 int bfs(int v, int dest, int n, int matrix[SIZE][SIZE]) {
     bool visited[SIZE];

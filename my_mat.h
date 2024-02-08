@@ -2,9 +2,9 @@
 #define _MY_MAT_
 
 // a constant definition exported by library:
-    #define TRUE  1
+    #define True  1
 // a constant definition exported by library:
-    #define FALSE  0
+    #define False  0
 // a constant definition exported by library:
     #define SIZE  10
 // a constant definition exported by library:

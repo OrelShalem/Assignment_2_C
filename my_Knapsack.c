@@ -9,11 +9,11 @@ int main() {
     int selected_bool[ITEMS];
   
     for(int i = 0; i < ITEMS; i++) {
-        // printf("item %d: ", i+1);
+        
         scanf(" %c", &items[i]);  
-        // printf("value %d: ", i+1);
+        
         scanf("%d", &values[i]);
-        // printf("weight %d: ", i+1);
+        
         scanf("%d", &weights[i]);
         getchar();
     }

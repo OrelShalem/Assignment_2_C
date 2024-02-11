@@ -16,7 +16,6 @@
 
 void enterVal(int matrix[SIZE][SIZE], int values[]);
 int isPathExists(int i, int j, int matrix[SIZE][SIZE]);
-int bfs(int v, int dest, int n, int matrix[SIZE][SIZE]);
 int shortPath(int src, int dest,int matrix[SIZE][SIZE]);
 int knapSack(int weights[], int values[], int selected_bool[]);
 int max(int a, int b);
